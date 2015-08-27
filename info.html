@@ -1,0 +1,73 @@
+<div style="margin-top:70px">
+    <div class="container">
+        <div class = "container" infinite-scroll="myPagingFunction()" infinite-scroll-distance="2">
+            <div class="row" ng-repeat="p in product track by $index">
+                <div>
+                    <div class="col-md-1 col-sm-1 col-xs-0">
+                    </div>
+                    <div class="col-md-5 col-sm-5 col-xs-12">
+                        <span ng-click="edit(p)"><img ng-src={{p.imageUrl}} data-toggle="modal" data-target="#myModalinfo"></span>
+                    </div>
+                    <div class="col-md-1 col-sm-1 col-xs-2">
+                    </div>
+                    <div class="col-md-5 col-sm-5 col-xs-10" style="text-align:center">
+                        <table style="border:1px solid black">
+                            <thead>
+                            <tr>
+                                <th colspan="2" style="text-align:center">INFO</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Full Name:</td>
+                                <td>{{p.fullName}}</td>
+                            </tr>
+                            <tr>
+                                <td>Short Name:</td>
+                                <td>{{p.shortName}} </td>
+                            </tr>
+                            <tr>
+                                <td>Price:</td>
+                                <td>{{p.price}} </td>
+                            <tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModalinfo" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header" style="padding:35px 50px;">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4>Product</h4>
+                        </div>
+                        <div class="modal-body" style="padding:40px 50px;">
+                            <form role="form">
+                                <div class="form-group">
+                                    fullName
+                                    <input type="text" class="form-control" ng-model="fullName" placeholder="fullName">
+                                </div>
+                                <div class="form-group">
+                                    shortName
+                                    <input type="text" class="form-control" ng-model="shortName" placeholder="shortName">
+                                </div>
+                                <div class="form-group">
+                                    imageUrl
+                                    <input type="text" class="form-control" ng-model="url" placeholder="imageUrl">
+                                </div>
+                                <div class="form-group">
+                                    price
+                                    <input type="text" class="form-control" ng-model="price" placeholder="price">
+                                </div>
+                                <button type="submit" class="btn btn-success btn-block" ng-click="save()"><span class="glyphicon glyphicon-save"></span> save</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
